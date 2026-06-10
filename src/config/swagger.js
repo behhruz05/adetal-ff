@@ -25,7 +25,13 @@ const swaggerSpec = {
     description:
       "Node + Express + MongoDB + Socket.io bilan yozilgan to'liq Instagram backend. Himoyalangan endpointlar uchun **Authorize** tugmasidan token kiriting.",
   },
-  servers: [{ url: `http://localhost:${PORT}`, description: "Local server" }],
+  servers: [
+    {
+      url: process.env.PUBLIC_URL || "https://adetal-ff-production.up.railway.app",
+      description: "Production (Railway)",
+    },
+    { url: `http://localhost:${PORT}`, description: "Local server" },
+  ],
   tags: [
     { name: "Auth", description: "Ro'yxatdan o'tish va kirish" },
     { name: "Users", description: "Foydalanuvchilar va follow tizimi" },
